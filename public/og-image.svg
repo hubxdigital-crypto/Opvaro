@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0F1F4B"/>
+  <circle cx="200" cy="100" r="250" fill="#1E3A8A" opacity="0.6"/>
+  <circle cx="1050" cy="550" r="300" fill="#2563EB" opacity="0.35"/>
+  <g transform="translate(60, 150)">
+    <circle cx="0" cy="0" r="0" fill="#1E3A8A"/>
+    <text x="0" y="120" font-family="Arial, sans-serif" font-size="150" font-weight="800" fill="#FFFFFF">
+      <tspan>Opvaro</tspan>
+    </text>
+    <text x="0" y="220" font-family="Arial, sans-serif" font-size="48" font-weight="600" fill="#93C5FD">
+      Amazon Account Management, Done For You
+    </text>
+    <text x="0" y="330" font-family="Arial, sans-serif" font-size="36" fill="#CBD5E1">
+      Full-time monitoring, issue resolution, and reporting
+    </text>
+    <rect x="0" y="380" width="360" height="72" rx="36" fill="#FFFFFF"/>
+    <text x="180" y="426" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#1E3A8A">
+      Book a Free Account Audit
+    </text>
+  </g>
+</svg>
