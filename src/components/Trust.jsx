@@ -1,44 +1,17 @@
 import { useState } from 'react'
 import Reveal from './Reveal'
-import { KeyIcon, UnlockIcon, XCircleIcon, ChevronDownIcon, CheckIcon } from '../lib/icons'
+import { ChevronDownIcon } from '../lib/icons'
 
-const principles = [
-  [KeyIcon, 'No password sharing', 'We work through Amazon’s official User Permissions system.'],
-  [UnlockIcon, 'You retain ownership', 'Your account, catalog, and data stay under your control.'],
-  [XCircleIcon, 'No lock-in contract', 'Stay month to month because the work continues to earn its place.'],
-]
-const faqs = [
-  ['How do I grant Opvaro access to my account?', 'Through Amazon’s official User Permissions feature in Seller Central. We receive only the access required, while you retain full ownership.'],
-  ['What does the free audit include?', 'A practical review of account health, listings, inventory, policy exposure, and any priority issues we can identify from the information available.'],
-  ['Can I cancel anytime?', 'Yes. Engagements are month to month, with no long-term lock-in.'],
-  ['What happens if my account gets a policy flag?', 'We assess the issue, prepare the necessary actions, and manage communication with Seller Support as appropriate.'],
+const faqs=[
+  ['What Amazon services does OPVARO provide?','OPVARO supports Amazon businesses across product research, sourcing, listings, SEO, PPC advertising, Seller Central operations, FBA, inventory, catalog management, account health, customer support, reporting, and ongoing marketplace management.'],
+  ['Can OPVARO manage my complete Amazon operation?','Yes. OPVARO can support multiple areas of your Amazon business under one coordinated workflow, or focus on specific services based on your requirements.'],
+  ['Can I work with OPVARO for only one service?','Yes. You can work with us for individual services such as product research, listing optimization, PPC management, catalog work, or Seller Central support.'],
+  ['Do you work with new Amazon sellers?','Yes. We can assist new sellers from the early research and preparation stages through launch and ongoing marketplace operations.'],
+  ['Do you work with established Amazon brands?','Yes. OPVARO can support existing brands with ongoing management, advertising, optimization, inventory, reporting, catalog operations, and other Amazon marketplace requirements.'],
+  ['Do you manage Amazon PPC?','Yes. PPC support can include campaign setup, keyword research, targeting, bid optimization, search-term analysis, negative targeting, monitoring, and ongoing optimization.'],
+  ['How do I get started?','Contact OPVARO and tell us about your Amazon business, current challenges, and the support you need. We’ll review your requirements and determine the right way to work together.']
 ]
 
-export default function Trust() {
-  return (
-    <section id="trust" className="bg-[#101724] py-16 sm:py-20 lg:py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-[.9fr_1.1fr] lg:gap-20">
-          <Reveal>
-            <p className="text-sm font-bold uppercase tracking-[.18em] text-accent-300">Access without anxiety</p>
-            <h2 className="mt-4 text-3xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-4xl">A partner should make your account feel safer—not less yours.</h2>
-            <p className="mt-5 max-w-md text-base leading-relaxed text-slate-400">Our operating model is built around the boundaries that matter to a seller: control, visibility, and an easy exit if we are not the right fit.</p>
-            <div className="mt-8 flex items-center gap-3 text-sm font-semibold text-slate-300"><span className="flex h-7 w-7 items-center justify-center rounded-full border border-emerald-400/25 bg-emerald-400/10"><CheckIcon className="h-3.5 w-3.5 text-emerald-300" strokeWidth={3} /></span> You remain the account owner, always.</div>
-          </Reveal>
-          <div className="border-t border-white/10">
-            {principles.map(([Icon, title, body], index) => <Reveal key={title} delay={index * 90}><article className="flex gap-5 border-b border-white/10 py-6 sm:gap-6"><span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent-500/12 text-accent-300"><Icon className="h-5 w-5" /></span><div><h3 className="text-lg font-bold text-white">{title}</h3><p className="mt-1.5 text-base leading-relaxed text-slate-400">{body}</p></div></article></Reveal>)}
-          </div>
-        </div>
-        <div id="faq" className="mt-16 border-t border-white/10 pt-12 sm:mt-20 sm:pt-16 lg:mt-24">
-          <Reveal><div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end"><div><p className="text-sm font-bold uppercase tracking-[.18em] text-accent-300">Questions, answered</p><h2 className="mt-3 text-3xl font-extrabold tracking-tight text-white">Before we work together.</h2></div><p className="max-w-sm text-base leading-relaxed text-slate-400">A few practical details sellers usually want to understand first.</p></div></Reveal>
-          <div className="mt-8 grid gap-3 lg:grid-cols-2">{faqs.map(([question, answer], index) => <FaqItem key={question} question={question} answer={answer} defaultOpen={index === 0} />)}</div>
-        </div>
-      </div>
-    </section>
-  )
-}
+export default function Trust(){return <section id="faq" className="relative overflow-hidden bg-paper py-16 sm:py-20 lg:py-24"><div className="pointer-events-none absolute -right-32 top-20 h-80 w-80 rounded-full bg-[#b99aff]/20 blur-3xl"/><div className="relative mx-auto max-w-5xl px-4 sm:px-6"><Reveal><div className="text-center"><p className="inline-flex rounded-full bg-mist-violet px-3 py-1.5 text-xs font-semibold uppercase tracking-[.12em] text-royal-amethyst">Questions, answered</p><h2 className="mt-5 font-display text-4xl font-medium leading-none text-deep-iris sm:text-5xl">Frequently Asked Questions</h2><p className="mx-auto mt-4 max-w-2xl leading-relaxed text-slate">Clear answers about how OPVARO supports Amazon sellers, brands, and marketplace teams.</p></div></Reveal><div className="mt-10 grid gap-3">{faqs.map(([q,a],i)=><Reveal key={q} delay={Math.min(i*55,275)}><FaqItem number={i+1} question={q} answer={a} defaultOpen={i===0}/></Reveal>)}</div></div></section>}
 
-function FaqItem({ question, answer, defaultOpen }) {
-  const [open, setOpen] = useState(defaultOpen)
-  return <div className="rounded-xl border border-white/10 bg-[#0c111a] transition-colors hover:border-white/20"><button type="button" className="flex w-full items-center justify-between gap-4 px-5 py-5 text-left" aria-expanded={open} onClick={() => setOpen(!open)}><span className="text-sm font-semibold text-white sm:text-base">{question}</span><ChevronDownIcon className={`h-5 w-5 shrink-0 text-accent-300 transition-transform ${open ? 'rotate-180' : ''}`} /></button><div className={`grid transition-all duration-300 ${open ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}><div className="overflow-hidden"><p className="px-5 pb-5 text-sm leading-relaxed text-slate-400">{answer}</p></div></div></div>
-}
+function FaqItem({number,question,answer,defaultOpen}){const[open,setOpen]=useState(defaultOpen);return <article className={`group overflow-hidden rounded-xl border bg-white transition-all duration-300 ${open?'border-[#c9b3ff] shadow-[0_14px_35px_-24px_rgba(62,0,121,.42)]':'border-mist hover:-translate-y-0.5 hover:border-[#d8cbf5] hover:shadow-[0_12px_28px_-24px_rgba(62,0,121,.30)]'}`}><button type="button" className="flex w-full items-center gap-4 px-4 py-4 text-left sm:px-6 sm:py-5" aria-expanded={open} onClick={()=>setOpen(!open)}><span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-bold transition-colors duration-300 ${open?'bg-royal-amethyst text-white':'bg-mist-violet text-royal-amethyst'}`}>{String(number).padStart(2,'0')}</span><span className="flex-1 font-semibold text-deep-iris sm:text-base">{question}</span><span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-all duration-300 ${open?'rotate-180 bg-royal-amethyst text-white':'bg-paper text-royal-amethyst group-hover:bg-mist-violet'}`}><ChevronDownIcon className="h-4 w-4"/></span></button><div className={`grid transition-[grid-template-rows] duration-500 ease-[cubic-bezier(.22,1,.36,1)] ${open?'grid-rows-[1fr]':'grid-rows-[0fr]'}`}><div className="overflow-hidden"><p className={`border-t px-4 pb-6 pt-5 text-sm leading-7 text-slate transition-all duration-500 sm:ml-[4.5rem] sm:px-0 sm:pr-16 ${open?'translate-y-0 border-mist opacity-100':'-translate-y-2 border-transparent opacity-0'}`}>{answer}</p></div></div></article>}

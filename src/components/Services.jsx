@@ -1,103 +1,19 @@
 import Reveal from './Reveal'
 import SectionHeading from './SectionHeading'
-import { CheckIcon, ActivityIcon, FileTextIcon, MessageIcon, MegaphoneIcon, LockIcon } from '../lib/icons'
-
-const largeCardChecks = [
-  'Account & Brand Registry Setup',
-  'Listing Health Checks',
-  'Policy Flag Alerts',
-  'Inventory & Buy Box Monitoring',
+import CalendlyButton from './CalendlyButton'
+import { SearchIcon, PackageIcon, FileTextIcon, TrendingUpIcon, MegaphoneIcon, ActivityIcon, BoxIcon, ShieldIcon, ClipboardIcon, StarIcon, MessageIcon, EyeIcon } from '../lib/icons'
+const services = [
+  [SearchIcon,'Product & Market Research','Identify promising opportunities through product, niche, competitor, demand, pricing, and market research.'],
+  [PackageIcon,'Sourcing & Supplier Coordination','Support with supplier research, quotation comparison, cost analysis, product requirements, and sourcing coordination.'],
+  [FileTextIcon,'Listing Creation & Optimization','Build clear, keyword-focused listings with optimized titles, bullets, descriptions, backend terms, and positioning.'],
+  [TrendingUpIcon,'Amazon SEO & Keyword Strategy','Research relevant search terms, uncover keyword opportunities, analyze competitors, and improve organic visibility.'],
+  [MegaphoneIcon,'PPC Advertising','Build, manage, and optimize campaigns through research, bidding, targeting, search-term analysis, and monitoring.'],
+  [ActivityIcon,'Seller Central Management','Handle catalog updates, cases, orders, account monitoring, and recurring Seller Central tasks.'],
+  [BoxIcon,'FBA & Inventory Management','Monitor inventory, FBA stock, shipments, replenishment requirements, and potential stock issues.'],
+  [ShieldIcon,'Account Health & Compliance','Monitor account health, performance notifications, cases, policy issues, and assist with appeals when required.'],
+  [ClipboardIcon,'Catalog & Variation Management','Manage product information, variations, parent-child structures, and catalog-related Seller Central issues.'],
+  [StarIcon,'A+ Content & Brand Store','Plan and optimize A+ Content and Storefront experiences with stronger structure and product presentation.'],
+  [MessageIcon,'Customer Experience','Support buyer communication, order concerns, returns, and service operations in line with marketplace policies.'],
+  [EyeIcon,'Reporting & Growth Strategy','Monitor sales, advertising, listings, inventory, competitors, and performance to uncover opportunities.'],
 ]
-
-const smallCards = [
-  {
-    icon: FileTextIcon,
-    title: 'Listing Creation & Optimization',
-    body: 'Titles, bullets, backend keywords, A+ Content — written to convert, not just to fill space.',
-  },
-  {
-    icon: MessageIcon,
-    title: 'Case Handling & Customer Support',
-    body: 'Seller Support tickets, buyer messages, returns — we chase them down so you don\u2019t have to.',
-  },
-  {
-    icon: MegaphoneIcon,
-    title: 'PPC & Ads Management',
-    body: 'Campaigns built, bids tuned, ACoS trimmed — weekly, not \u201Cwhenever we get to it.\u201D',
-  },
-  {
-    icon: LockIcon,
-    title: 'No Lock-In',
-    body: 'Month-to-month. We earn the renewal, not lock you into one.',
-  },
-]
-
-export default function Services() {
-  return (
-    <section id="services" className="relative overflow-hidden bg-white py-20 md:py-24">
-      <div
-        className="pointer-events-none absolute right-[-8%] top-24 h-[380px] w-[380px] rounded-full bg-[#b99aff]/20 blur-3xl"
-        aria-hidden="true"
-      />
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          dark
-          eyebrow="Services"
-          title="One team for the work nobody else has time to own."
-          subtext="We take responsibility for the daily details that protect revenue, customer experience, and your peace of mind."
-        />
-
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-6">
-          <Reveal className="md:col-span-2 lg:col-span-4 lg:row-span-2">
-            <div className="group relative flex h-full flex-col overflow-hidden rounded-lg border border-mist bg-white p-6 shadow-[0_16px_24px_-18px_rgba(14,59,101,.18)] transition-all hover:-translate-y-1 sm:p-8">
-              <div
-                className="pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full bg-[#b99aff]/25 blur-3xl"
-                aria-hidden="true"
-              />
-              <div className="relative">
-                <span className="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-mist-violet">
-                  <ActivityIcon className="h-6 w-6 text-royal-amethyst" />
-                </span>
-                <h3 className="mt-5 font-display text-2xl font-medium leading-none text-deep-iris">
-                  Account Setup &amp; Management
-                </h3>
-                <p className="mt-3 max-w-md text-base leading-relaxed text-slate">
-                  From Brand Registry to daily health checks — we keep your account compliant,
-                  protected, and sellable, every single day.
-                </p>
-                <ul className="mt-6 grid gap-3 sm:grid-cols-2">
-                  {largeCardChecks.map((item) => (
-                    <li key={item} className="flex items-center gap-2.5">
-                      <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-mist-violet">
-                        <CheckIcon className="h-3.5 w-3.5 text-royal-amethyst" strokeWidth={3} />
-                      </span>
-                      <span className="text-sm font-medium text-plum-velvet">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </Reveal>
-
-          {smallCards.map(({ icon: Icon, title, body }, i) => (
-            <Reveal key={title} delay={(i + 1) * 100} className="md:col-span-1 lg:col-span-2">
-              <div className="group relative h-full overflow-hidden rounded-lg border border-mist bg-paper p-6 transition-all hover:-translate-y-1 hover:bg-white hover:shadow-[0_16px_24px_-18px_rgba(14,59,101,.18)]">
-                <div
-                  className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-accent-600/15 blur-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                  aria-hidden="true"
-                />
-                <div className="relative">
-                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-mist-violet">
-                    <Icon className="h-5 w-5 text-royal-amethyst" />
-                  </span>
-                  <h3 className="mt-4 font-display text-xl font-medium leading-none text-deep-iris">{title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-slate">{body}</p>
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
+export default function Services(){return <section id="services" className="relative overflow-hidden bg-white py-16 sm:py-20 lg:py-24"><div className="pointer-events-none absolute right-[-8%] top-24 h-[380px] w-[380px] rounded-full bg-[#b99aff]/20 blur-3xl"/><div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"><SectionHeading dark eyebrow="What We Manage" title="Complete Amazon Marketplace Services" subtext="From launch to daily operations and long-term growth, we support every major part of your Amazon business."/><div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{services.map(([Icon,title,body],i)=><Reveal key={title} delay={(i%3)*70}><article className="group h-full rounded-lg border border-mist bg-paper p-5 transition-all hover:-translate-y-1 hover:bg-white hover:shadow-[0_16px_24px_-18px_rgba(38,17,74,.22)] sm:p-6"><span className="flex h-10 w-10 items-center justify-center rounded-lg bg-mist-violet"><Icon className="h-5 w-5 text-royal-amethyst"/></span><h3 className="mt-4 font-display text-xl font-medium leading-tight text-deep-iris">{title}</h3><p className="mt-3 text-sm leading-relaxed text-slate">{body}</p></article></Reveal>)}</div><Reveal><div className="mt-8 flex flex-col gap-5 rounded-lg border border-mist bg-[linear-gradient(135deg,#f7f5ff,#edecff_60%,#fff)] p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8"><div><h3 className="font-display text-2xl font-medium text-deep-iris">Need complete Amazon management?</h3><p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate">From daily operations to ongoing optimization, OPVARO can manage the areas of your Amazon business that need consistent attention.</p></div><CalendlyButton className="shrink-0">Let&apos;s Talk</CalendlyButton></div></Reveal></div></section>}

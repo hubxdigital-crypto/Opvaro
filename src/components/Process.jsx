@@ -1,33 +1,4 @@
 import Reveal from './Reveal'
-
-const steps = [
-  ['01', 'Audit the account', 'We identify immediate risk and the operations that need attention first.'],
-  ['02', 'Agree the handover', 'You grant only the Amazon permissions needed. Your account stays yours.'],
-  ['03', 'Take over the work', 'We resolve urgent issues, then manage listings, ads, support, and daily health.'],
-  ['04', 'Report and improve', 'You receive a clear weekly view of what changed and what comes next.'],
-]
-
-export default function Process() {
-  return (
-    <section id="process" className="relative overflow-hidden bg-[#090c13] py-16 sm:py-20 lg:py-24">
-      <div className="pointer-events-none absolute right-0 top-0 h-full w-1/2 bg-[radial-gradient(ellipse_at_top_right,rgba(37,99,235,.13),transparent_58%)]" />
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <Reveal className="grid gap-7 border-b border-white/10 pb-12 lg:grid-cols-[1fr_.8fr] lg:items-end">
-          <div><p className="text-sm font-bold uppercase tracking-[.18em] text-accent-300">A considered handover</p><h2 className="mt-4 max-w-2xl text-3xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-4xl">Structured from day one. Quietly managed after that.</h2></div>
-          <p className="max-w-md text-base leading-relaxed text-slate-400 lg:justify-self-end">No improvised access changes. No handoffs between vendors. Just a clear operating rhythm from the first review onward.</p>
-        </Reveal>
-        <div className="grid md:grid-cols-2">
-          {steps.map(([number, title, body], index) => (
-            <Reveal key={number} delay={index * 80}>
-              <article className={`group border-b border-white/10 py-8 md:px-8 md:py-10 ${index % 2 === 0 ? 'md:border-r md:pl-0' : 'md:pr-0'}`}>
-                <p className="text-5xl font-black tracking-tighter text-white/[.09] transition-colors group-hover:text-accent-400/35">{number}</p>
-                <h3 className="mt-5 text-xl font-bold text-white">{title}</h3>
-                <p className="mt-3 max-w-sm text-base leading-relaxed text-slate-400">{body}</p>
-              </article>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
+import CalendlyButton from './CalendlyButton'
+const steps=[['01','Tell Us About Your Business','Share where your Amazon business stands today, what you’re selling, and where you need support.'],['02','We Review Your Account & Needs','We identify priorities, operational gaps, and the areas where our team can provide the most value.'],['03','We Build Your Plan','We define a clear scope of work and workflow based on your marketplace requirements and goals.'],['04','We Get to Work','Our team starts managing the agreed areas while monitoring performance and keeping you informed.']]
+export default function Process(){return <section id="process" className="relative overflow-hidden bg-paper py-16 sm:py-20 lg:py-24"><div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"><Reveal><p className="text-xs font-bold uppercase tracking-[.16em] text-royal-amethyst">How It Works</p><h2 className="mt-4 font-display text-4xl font-medium leading-none text-deep-iris sm:text-5xl">A Simple Way to Get Started.</h2></Reveal><div className="mt-10 grid md:grid-cols-2">{steps.map(([n,t,b],i)=><Reveal key={n} delay={i*70}><article className={`h-full border-b border-mist py-8 md:px-8 ${i%2===0?'md:border-r md:pl-0':'md:pr-0'}`}><p className="font-display text-5xl font-medium text-[#b99aff]">{n}</p><h3 className="mt-4 text-xl font-semibold text-deep-iris">{t}</h3><p className="mt-3 max-w-lg leading-relaxed text-slate">{b}</p></article></Reveal>)}</div><Reveal><div className="mt-8"><CalendlyButton>Let&apos;s Talk</CalendlyButton></div></Reveal></div></section>}

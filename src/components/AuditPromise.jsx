@@ -1,43 +1,4 @@
 import Reveal from './Reveal'
-import { ActivityIcon, FileTextIcon, MessageIcon, ArrowRightIcon } from '../lib/icons'
-
-const signals = [
-  { icon: ActivityIcon, label: 'Account health', detail: 'Flags, policy risks, and unresolved priorities.' },
-  { icon: FileTextIcon, label: 'Listings & catalog', detail: 'Conversion gaps, content issues, and inventory friction.' },
-  { icon: MessageIcon, label: 'Cases & support', detail: 'Open cases and buyer issues that need a clear owner.' },
-]
-
-export default function AuditPromise() {
-  return (
-    <section id="audit-briefing" className="relative overflow-hidden bg-[#080b12] py-16 sm:py-20 lg:py-24">
-      <div className="pointer-events-none absolute left-[8%] top-0 h-px w-[84%] bg-gradient-to-r from-transparent via-accent-400/50 to-transparent" />
-      <div className="pointer-events-none absolute -left-40 top-24 h-96 w-96 rounded-full bg-accent-600/10 blur-3xl" />
-      <div className="relative mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 md:grid-cols-[.85fr_1.15fr] md:items-center md:gap-10 lg:gap-20 lg:px-8">
-        <Reveal>
-          <p className="text-sm font-bold uppercase tracking-[0.18em] text-accent-300">Your first 48 hours</p>
-          <h2 className="mt-4 max-w-lg text-3xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-4xl">Start with a clear view of what is costing you attention.</h2>
-          <p className="mt-5 max-w-md text-base leading-relaxed text-slate-400">Before anything changes, we map the operational issues sitting inside your account and tell you exactly what deserves action first.</p>
-          <a href="#services" className="mt-7 inline-flex items-center gap-2 text-sm font-bold text-accent-300 transition-colors hover:text-white">Explore the scope <ArrowRightIcon className="h-4 w-4" /></a>
-        </Reveal>
-
-        <Reveal delay={120}>
-          <div className="overflow-hidden rounded-2xl border border-white/10 bg-[#0e1420] shadow-[0_24px_60px_rgba(0,0,0,.28)]">
-            <div className="flex flex-col items-start gap-2 border-b border-white/10 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
-              <div className="flex items-center gap-3"><span className="h-2.5 w-2.5 rounded-full bg-emerald-400" /><span className="text-sm font-semibold text-white">Audit briefing</span></div>
-              <span className="text-xs font-bold uppercase tracking-[.14em] text-slate-500">Delivered in 48h</span>
-            </div>
-            <div className="divide-y divide-white/[.08]">
-              {signals.map(({ icon: Icon, label, detail }, index) => (
-                <div key={label} className="group flex gap-3 px-4 py-5 sm:gap-4 sm:px-6">
-                  <span className="text-sm font-black text-slate-600">0{index + 1}</span>
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[.04] text-accent-300 transition-colors group-hover:bg-accent-500/15"><Icon className="h-4 w-4" /></span>
-                  <div><h3 className="font-bold text-white">{label}</h3><p className="mt-1 text-sm leading-relaxed text-slate-400">{detail}</p></div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </Reveal>
-      </div>
-    </section>
-  )
-}
+import { CheckIcon } from '../lib/icons'
+const areas = ['Research & sourcing', 'Listings & SEO', 'PPC & growth', 'Operations & account health']
+export default function AuditPromise() { return <section id="about" className="relative overflow-hidden bg-[#f6f7fa] py-16 sm:py-20 lg:py-24"><div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 md:grid-cols-[.9fr_1.1fr] md:items-center lg:gap-20 lg:px-8"><Reveal><p className="text-xs font-bold uppercase tracking-[.16em] text-royal-amethyst">What We Do</p><h2 className="mt-4 max-w-lg font-display text-4xl font-medium leading-none text-deep-iris sm:text-5xl">Everything Amazon.<br />One Team.</h2><p className="mt-5 max-w-lg text-base leading-relaxed text-slate">Running an Amazon business means managing research, listings, advertising, inventory, account health, customers, and countless day-to-day operations.</p><p className="mt-4 max-w-lg text-base leading-relaxed text-slate">OPVARO brings it together under one team — helping sellers and brands launch, manage, optimize, and grow their presence on Amazon.</p><a href="#services" className="mt-7 inline-flex font-semibold text-royal-amethyst hover:text-deep-iris">Explore Our Services →</a></Reveal><Reveal delay={120}><div className="rounded-lg border border-mist bg-white p-5 shadow-[0_24px_60px_rgba(38,17,74,.10)] sm:p-7"><p className="text-xs font-bold uppercase tracking-[.16em] text-ash">Connected marketplace management</p><div className="mt-5 grid gap-3 sm:grid-cols-2">{areas.map(area => <div key={area} className="flex items-center gap-3 rounded-lg bg-paper p-4"><span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-mist-violet"><CheckIcon className="h-3.5 w-3.5 text-royal-amethyst" strokeWidth={3}/></span><span className="font-medium text-plum-velvet">{area}</span></div>)}</div></div></Reveal></div></section> }
